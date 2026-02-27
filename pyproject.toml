@@ -1,7 +1,7 @@
 [project]
 name = "xtrack"
 version = "0.1.0"
-description = "Add your description here"
+description = "A discord bot to track and settle your common trip expenses."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -9,4 +9,7 @@ dependencies = [
     "dotenv>=0.9.9",
     "flask>=3.1.3",
     "httpx>=0.28.1",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.1",
+    "pymongo[srv]>=4.16.0",
 ]
