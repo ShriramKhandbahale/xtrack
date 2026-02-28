@@ -14,10 +14,10 @@ class Download(commands.Cog):
 
         try:
             if ctx.guild is None:
-                buffer = generate_user_excel_buffer(ctx.author)
+                buffer = await generate_user_excel_buffer(self.bot, ctx.author)
                 filename = f"{datetime.now(timezone.utc).strftime('%Y-%m-%d_xtrack')}.xlsx"
             else:
-                buffer = generate_channel_excel_buffer(ctx.channel)
+                buffer = await generate_channel_excel_buffer(ctx.channel)
                 filename = f"{ctx.channel.name}_xtrack.xlsx"
 
             if buffer is None:

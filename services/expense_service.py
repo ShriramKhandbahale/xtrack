@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from services.db import expenses
 
-def record_expense(channel_id, user_id, message_id, amount, note, expense_type="channel"):
+def record_expense(channel_id, user_id, message_id, amount, note):
     try:
         expenses.insert_one({
             "channel_id": channel_id,
@@ -9,7 +9,6 @@ def record_expense(channel_id, user_id, message_id, amount, note, expense_type="
             "message_id": message_id,
             "amount": float(amount),
             "note": note,
-            "type": expense_type,
             "timestamp": datetime.now(timezone.utc)
         })
         return True
@@ -42,22 +41,20 @@ def delete_expense(message_id, user_id):
 
 def get_channel_expenses(channel_id):
     return list(expenses.find({
-        "channel_id": channel_id,
-        "type": "channel"
+        "channel_id": channel_id
     }))
 
 
 def get_user_expenses(channel_id, user_id):
     return list(expenses.find({
         "channel_id": channel_id,
-        "user_id": user_id,
-        "type": "channel"
+        "user_id": user_id
     }))
 
 
 def get_channel_total(channel_id):
     result = expenses.aggregate([
-        { "$match": { "channel_id": channel_id,"type": "channel" } },
+        { "$match": { "channel_id": channel_id} },
         { "$group": { "_id": None, "total": {"$sum": "$amount"} } }
     ])
 
@@ -67,7 +64,7 @@ def get_channel_total(channel_id):
 
 def get_user_total(channel_id, user_id):
     result = expenses.aggregate([
-        { "$match": { "channel_id": channel_id, "user_id": user_id, "type": "channel" } },
+        { "$match": { "channel_id": channel_id, "user_id": user_id } },
         { "$group": { "_id": None, "total": { "$sum": "$amount" } } }
     ])
 

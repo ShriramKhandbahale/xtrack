@@ -31,7 +31,7 @@ class Expense(commands.Cog):
                 ctx.author.id,
                 ctx.message.id,
                 amount,
-                note
+                note,
             )
 
             await ctx.message.add_reaction("✅")
@@ -56,7 +56,7 @@ class Expense(commands.Cog):
         if before.author.bot:
             return
 
-        if not after.content.startswith("$rec"):
+        if not after.content.lower().startswith("$rec"):
             return
 
         try:
