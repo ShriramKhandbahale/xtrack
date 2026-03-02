@@ -9,7 +9,13 @@ class Settle(commands.Cog):
     @commands.command()
     async def settle(self, ctx):
         expenses = get_channel_expenses(ctx.channel.id)
-        settlements = calculate_settlements(expenses)
+        members = [
+            member.id
+            for member in ctx.channel.members
+            if not member.bot
+        ]
+
+        settlements = calculate_settlements(expenses, members)
 
         if not settlements:
             await ctx.reply("No settlements needed.")

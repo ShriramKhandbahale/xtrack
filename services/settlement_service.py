@@ -1,5 +1,5 @@
-def calculate_settlements(expenses):
-    totals = {}
+def calculate_settlements(expenses, participants):
+    totals = {user_id: 0.0 for user_id in participants}
     total_expense = 0.0
 
     for entry in expenses:
@@ -7,9 +7,8 @@ def calculate_settlements(expenses):
         user = entry["user_id"]
 
         total_expense += amount
-        totals[user] = totals.get(user, 0) + amount
-
-    participants = list(totals.keys())
+        totals[user] += amount  
+        
     if not participants:
         return []
 
