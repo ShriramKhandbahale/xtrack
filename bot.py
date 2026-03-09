@@ -5,10 +5,12 @@ import os
 from dotenv import load_dotenv
 import server
 import asyncio
+import topgg
 
 load_dotenv()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
+TOPGG_TOKEN = os.getenv("TOPGG_TOKEN")
 
 handler = logging.FileHandler(
     filename="discord.log",
@@ -29,6 +31,7 @@ bot = commands.Bot(
 @bot.event
 async def on_ready():
     print(f"{bot.user} initialized")
+    bot.topgg = topgg.DBLClient(bot, TOPGG_TOKEN, autopost=True)
 
 async def load_cogs():
     await bot.load_extension("cogs.expense")

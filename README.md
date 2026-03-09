@@ -74,4 +74,4 @@ xtrack also handles direct messages (DMs) for personal expense tracking — same
 
 ---
 
-![Demo](assets/demo.png)
+![Demo](https://github.com/ShriramKhandbahale/xtrack/raw/main/assets/demo.png)
