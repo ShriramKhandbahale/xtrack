@@ -1,8 +1,7 @@
 # xtrack
 
-Tired of the awkward "wait, who paid for what?" conversation after every group trip, dinner,
-or shared subscription? **xtrack** takes care of it for you — right inside Discord, 
-where your group already hangs out.
+Tired of the awkward "wait, who paid for what" conversation after every group trip?
+**xtrack** takes care of it for you — right inside Discord, where your group already hangs out.
 
 ---
 
@@ -10,7 +9,7 @@ where your group already hangs out.
 
 Each person records what they paid using a simple command. xtrack keeps a running log 
 per channel, so every group can have its own expense thread — one channel for the 
-trip to Goa, another for the flat's monthly bills, another for your weekly lunch crew.
+trip to Goa, another for the semester's project, another for your study tour.
 
 When it's time to settle up, xtrack figures out the **minimum number of transactions** 
 needed so everyone is square. No spreadsheets, no Splitwise, no switching apps.
@@ -21,10 +20,10 @@ needed so everyone is square. No spreadsheets, no Splitwise, no switching apps.
 
 | Command | What it does |
 |---|---|
-| `$rec <amount>, <note>` | Record an expense (`$rec 850, pizza night`) |
+| `$rec <amount>, <note>` | Record an expense (`$rec 850, pizza`) |
 | `$total` | See the total spent in this channel |
 | `$mytotal` | See how much *you've* spent in this channel |
-| `$settle` | Calculate exactly who owes whom and how much |
+| `$settle` | Calculate exactly how much you owe to whom |
 | `$download` | Export all expenses to an Excel spreadsheet |
 
 **Made a mistake?** Just edit your `$rec` message — xtrack will update the record 
@@ -53,10 +52,13 @@ Run `$download` in any channel to get a full `.xlsx` spreadsheet of every expens
 timestamped, with usernames and notes. Handy for reimbursements, record-keeping, 
 or settling with people outside the server.
 
-DM xtrack directly and use `$download` to get a spreadsheet of all your personal 
-expenses across every channel.
+DM xtrack directly and use `$download` to get a spreadsheet of all your personal expenses across every channel.
 
 ---
+
+## Personal Expense Tracking
+
+xtrack also handles direct messages (DMs) for personal expense tracking — same commands
 
 ## Why xtrack?
 
@@ -68,8 +70,7 @@ expenses across every channel.
 
 ---
 
-*Built for friend groups, roommates, travel crews, and anyone who's ever had to 
-figure out who owes who after a group dinner.*
+*Built for friend groups, roommates, travel crews, and anyone who's ever had to figure out who owes who after a group dinner.*
 
 ---
 
